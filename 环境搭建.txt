@@ -1,0 +1,48 @@
+VSCodeUserSetup-x64-1.98.2（安装VSCode后，在extension里面搜索python，安装microsoft的官方python支持）
+Anaconda3-2024.10-1-Windows-x86_64
+
+一、安装VSCode
+
+二、安装Anaconda
+
+三、Anaconda Prompt里安装
+1）创建虚拟环境
+conda create --name xinli python=3.12.7
+2）激活虚拟环境（退出虚拟环境用命令conda deactivate)
+conda activate xinli
+3）安装安装pyserial-3.5
+conda install pyserial=3.5
+4）安装QT（包含了designer）
+conda install pyqt=5.15.10
+5）pyqtchart需要单独安装
+conda install pyqtchart=5.15.10
+6）安装pandas（pandas版本2.2.3，会自动安装numpy2.0.1）
+conda install pandas=2.2.3
+
+7）pip install bleak asyncio   #为了蓝牙通信2025.7.30
+
+
+四、设置VSCode
+       Anaconda3 默认装在 C:\Users\hwsd-\anaconda3 （其中hwsd-是用户名）
+       创建的虚拟环境的安装目录为 C:\Users\hwsd-\anaconda3\envs\xinli\
+
+1）VScode 插件商店搜索 PYQT integration
+
+2）安装完成后点击pyqt integration右下角的小齿轮，选择扩展设置extension settings，设置下面两个个path
+Pyqt-integration › Qtdesigner: Path （图形设计界面）
+C:\Users\hwsd-\anaconda3\envs\xinli\Library\bin\designer.exe
+Pyqt-integration › Pyuic: Cmd （把deisigner设计的ui界面编译成python文件，本项目未用，直接加载ui文件）
+C:\Users\hwsd-\anaconda3\envs\xinli\Scripts\pyuic5.exe
+
+
+3）在VSCode工作区右击，选择PYQT:New Form，会弹出designer设计器
+在设计器中进行控件设计，保存。命名为main.ui。回到VSCode，发下工作目录下多出*.ui文件
+右键生成的main.ui，选择PYQT:Compile Form，则会自动生成UI_main.py文件
+
+参考文章：https://blog.csdn.net/weixin_44064908/article/details/128400298
+
+五、发布
+1）conda install pyinstaller （pyinstaller=6.12.0）
+2）打开anaconda prompt，进入D:\xinlipressure目录，激活虚拟环境（conda activate xinli)
+执行pyinstaller main.spec，形成的发布文件在dist目录下
+
