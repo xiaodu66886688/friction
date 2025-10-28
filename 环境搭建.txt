@@ -19,7 +19,7 @@ conda install pyqtchart=5.15.10
 6）安装pandas（pandas版本2.2.3，会自动安装numpy2.0.1）
 conda install pandas=2.2.3
 
-7）pip install bleak asyncio   #为了蓝牙通信2025.7.30
+7）pip install bleak asyncio   #为了蓝牙通信2025.7.30 #不使用蓝牙了 2025.10.27
 
 
 四、设置VSCode
