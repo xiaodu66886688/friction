@@ -14,7 +14,9 @@ from PyQt5.QtCore import Qt, QEvent
 import datetime
 import pandas as pd
 import numpy as np
-
+'''
+主窗口类
+'''
 class MyApp(QMainWindow):
     def __init__(self):
         super(MyApp, self).__init__()
